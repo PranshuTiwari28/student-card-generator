@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Card Generator</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        body {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+
+        .container {
+            width: 900px;
+            display: flex;
+            gap: 40px;
+        }
+
+
+        form {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        }
+
+
+        form h2 {
+            margin-bottom: 20px;
+        }
+
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+
+        button {
+            background: #2196f3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        button:hover {
+            background: #1976d2;
+        }
+
+
+        .card {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        }
+
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #2196f3;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+
+        .card p {
+            margin-bottom: 18px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- Form -->
+
+
+        <form id="studentForm">
+
+
+            <h2>Student Registration</h2>
+
+
+            <input type="text" id="name" placeholder="Enter Name">
+
+
+            <input type="email" id="email" placeholder="Enter Email">
+
+
+            <input type="number" id="age" placeholder="Enter Age">
+
+
+            <select id="course">
+
+
+                <option value="">Select Course</option>
+
+
+                <option>MERN Stack</option>
+
+
+                <option>Java Full Stack</option>
+
+
+                <option>Python</option>
+
+
+                <option>Data Science</option>
+
+
+            </select>
+
+
+            <button type="submit" id="submit">
+                Generate Card
+            </button>
+
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+        <!-- Card -->
+
+
+        <div class="card">
+
+
+            <div class="avatar">
+                👤
+            </div>
+
+
+            <h2>Student Card</h2>
+
+
+            <p>
+                <strong>Name :</strong>
+                <span id="cardName">Not Available</span>
+            </p>
+
+
+            <p>
+                <strong>Email :</strong>
+                <span id="cardEmail">Not Available</span>
+            </p>
+
+
+            <p>
+                <strong>Age :</strong>
+                <span id="cardAge">--</span>
+            </p>
+
+
+            <p>
+                <strong>Course :</strong>
+                <span id="cardCourse">Not Selected</span>
+            </p>
+
+
+        </div>
+        <!-- <script src="script.js"></script> -->
+
+    </div>
+
+    <script>
+        let name = document.querySelector("#name");
+        let email = document.querySelector("#email");
+        let age = document.querySelector("#age");
+        let course = document.querySelector("#course")
+
+        let cname = document.querySelector("#cardName");
+        let cemail = document.querySelector("#cardEmail");
+        let cage = document.querySelector("#cardAge");
+        let ccourse = document.querySelector("#cardCourse");
+
+        const form = document.querySelector("#studentForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            cname.textContent = name.value;
+            cemail.textContent = email.value;
+            cage.textContent = age.value;
+            ccourse.textContent = course.value;
+            document.querySelector(".avatar").textContent = name.value.charAt(0).toUpperCase();
+        });
+        
+
+    </script>
+</body>
+
+</html>
